@@ -7,8 +7,8 @@ jobs:
     steps:
     - name: notify
       id: notifier
-      uses: z-z/gh-telegram-notifier-action@v0.6
+      uses: z-z/gh-telegram-notifier-action@v0.7
       with:
         botApiKey: '1711705034:AAEFbiXWsXJZj9QLdP_-PUQ9Q7PFz2-gHHI'
         chats: '-1001397052454'
-        msg: ❌ ${{ github.actor }} сломал выкат ${{ github.repository }}, ${{ github.base_ref }}, ${{ github.head_ref }}, ${{ github.ref }}. <a href="hello">hello</a>
+        msg: ❌ ${{ github.actor }} сломал выкат ${{ github.repository }}, [${{ github.context.repo.repo }}](${{ github.context.repo.repo }}).
