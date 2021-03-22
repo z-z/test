@@ -11,4 +11,4 @@ jobs:
       with:
         botApiKey: '1711705034:AAEFbiXWsXJZj9QLdP_-PUQ9Q7PFz2-gHHI'
         chats: '-1001397052454'
-        msg: ❌ ${{ github.actor }} сломал выкат ${{ github.repository }}, ${{ github.base_ref }}
+        msg: ❌ ${{ github.actor }} сломал выкат ${{ github.repository }}, ${{ github.base_ref }}, ${{ github.head_ref }}, ${{ github.ref }}. <a href="hello">hello</a>
