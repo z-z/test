@@ -19,5 +19,5 @@ jobs:
       uses: z-z/gh-telegram-notifier-action@v0.9.6
       with:
         botApiKey: '1711705034:AAEFbiXWsXJZj9QLdP_-PUQ9Q7PFz2-gHHI'
-        chats: '-1001397052454'
+        chats: '-1001397052454,@zbazrov'
         msg: ‼️ ${{ github.actor }} сломал выкат ${{ github.event.repository.html_url }}
