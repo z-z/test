@@ -11,4 +11,4 @@ jobs:
       with:
         botApiKey: '1711705034:AAEFbiXWsXJZj9QLdP_-PUQ9Q7PFz2-gHHI'
         chats: '-1001397052454'
-        msg: hello world => ${{ github.context.repo }} <=
+        msg: hello world => ${{ github.context.payload.repository.name }} <=
