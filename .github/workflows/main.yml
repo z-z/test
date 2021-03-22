@@ -7,7 +7,7 @@ jobs:
     steps:
     - name: notify
       id: notifier
-      uses: z-z/gh-telegram-notifier-action@v0.2
+      uses: z-z/gh-telegram-notifier-action@v0.3
       with:
         botApiKey: '1711705034:AAEFbiXWsXJZj9QLdP_-PUQ9Q7PFz2-gHHI'
         chats: '-1001397052454'
