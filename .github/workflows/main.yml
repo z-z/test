@@ -4,10 +4,19 @@ jobs:
   main:
     runs-on: ubuntu-latest
     name: main
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x, 14.x, 15.x]
     steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm test
     - name: notify
-      id: notifier
-      uses: z-z/gh-telegram-notifier-action@v0.9.5
+      if: ${{ failure() }}
+      uses: z-z/gh-telegram-notifier-action@v0.9.6
       with:
         botApiKey: '1711705034:AAEFbiXWsXJZj9QLdP_-PUQ9Q7PFz2-gHHI'
         chats: '-1001397052454'
