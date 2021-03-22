@@ -2,7 +2,7 @@ class Todos
 {
 	constructor()
 	{
-		this.todos = [];
+		this.todos = [1];
 	}
 
 	list()
