@@ -1,15 +1,14 @@
 on: [push]
 
 jobs:
-  hello_world_job:
+  main:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: main
     steps:
-    - name: Hello world action step
-      id: hello
-      uses: actions/hello-world-javascript-action@v1.1
+    - name: notify
+      id: notifier
+      uses: z-z/telegram-notifier@v0.2
       with:
-        who-to-greet: 'Mona the Octocat'
-    # Use the output from the `hello` step
-    - name: Get the output time
-      run: echo "The time was ${{ steps.hello.outputs.time }}"
+        botApiKey: '1711705034:AAEFbiXWsXJZj9QLdP_-PUQ9Q7PFz2-gHHI'
+        chats: '-1001397052454'
+        msg: 'hello world'
