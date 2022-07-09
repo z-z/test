@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "issuer"
+spec:
+  tls:
+  - hosts:
+    - test-nginx.odva.fun
+    secretName: test
+  rules:
+    - host: test-nginx.odva.fun
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: test-app-service
+                port:
+                  number: 5678
