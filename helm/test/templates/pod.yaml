@@ -1,0 +1,12 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: test-app-pod
+  labels:
+    app: test-app
+spec:
+  containers:
+    - name: test-app-container
+      image: hashicorp/http-echo
+      args:
+        - "-text=test-app"

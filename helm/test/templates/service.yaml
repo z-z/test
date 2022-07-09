@@ -1,0 +1,9 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: test-app-service
+spec:
+  selector:
+    app: test-app
+  ports:
+    - port: 5678
