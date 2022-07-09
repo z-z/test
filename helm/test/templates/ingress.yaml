@@ -9,7 +9,7 @@ spec:
   tls:
   - hosts:
     - test-nginx.odva.fun
-    secretName: test
+    secretName: letsencrypt
   rules:
     - host: test-nginx.odva.fun
       http:
