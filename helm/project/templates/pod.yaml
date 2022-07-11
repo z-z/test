@@ -7,6 +7,12 @@ metadata:
 spec:
   containers:
     - name: test-app-container
-      image: hashicorp/http-echo
-      args:
-        - "-text=test-app"
+      image: httpd:2.4
+      volumeMounts:
+      - mountPath: /usr/local/apache2/htdocs/
+        name: site-volume
+  volumes:
+  - name: site-volume
+    hostPath:
+      path: /root/test
+      type: Directory
