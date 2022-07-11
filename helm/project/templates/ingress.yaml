@@ -8,10 +8,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - test-nginx.odva.fun
+    - test-apache.odva.fun
     secretName: letsencrypt
   rules:
-    - host: test-nginx.odva.fun
+    - host: test-apache.odva.fun
       http:
         paths:
           - pathType: Prefix
