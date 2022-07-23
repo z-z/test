@@ -10,7 +10,7 @@ spec:
   tls:
   - hosts:
     - {{ .Values.user }}-{{ .Values.project }}.odva.fun
-    secretName: letsencrypt
+    secretName: {{ .Values.project }}-{{ .Values.user }}-secret-key
   rules:
     - host: {{ .Values.user }}-{{ .Values.project }}.odva.fun
       http:
