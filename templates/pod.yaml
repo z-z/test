@@ -6,11 +6,15 @@ metadata:
   labels:
     app: {{ .Values.project }}-{{ .Values.user }}
 spec:
+  securityContext:
+    runAsUser: {{ .Values.user }}
+    runAsGroup: {{ .Values.user }}
+    fsGroup: {{ .Values.user }}
   containers:
   - name: {{ .Values.project }}-{{ .Values.user }}-container
     image: httpd:2.4
-    securityContext:
-        privileged: true
+    # securityContext:
+    #     privileged: true
     volumeMounts:
     - mountPath: /usr/local/apache2/htdocs/
       name: {{ .Values.project }}-{{ .Values.user }}-volume
