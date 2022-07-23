@@ -1,3 +1,4 @@
+{{- $uid := os.exec.Command("/bin/bash", "-c", "id -u test") }}
 kind: Pod
 apiVersion: v1
 metadata:
@@ -7,7 +8,7 @@ metadata:
     app: {{ .Values.project }}-{{ .Values.user }}
 spec:
   securityContext:
-    runAsUser: {{ $(id -u .Values.user) }}
+    runAsUser: {{ .Values.user }}
     runAsGroup: {{ .Values.user }}
     fsGroup: {{ .Values.user }}
   containers:
