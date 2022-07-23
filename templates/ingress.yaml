@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Values.project }}-{{ .Values.user }}-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "issuer"
+spec:
+  tls:
+  - hosts:
+    - {{ .Values.user }}-{{ .Values.project }}.odva.fun
+    secretName: letsencrypt
+  rules:
+    - host: {{ .Values.user }}-{{ .Values.project }}.odva.fun
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: {{ .Values.project }}-{{ .Values.user }}-service
+                port:
+                  number: 80

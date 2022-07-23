@@ -1,6 +1,4 @@
 kind: Namespace
 apiVersion: v1
 metadata:
-  name: test-{{ .Values.hello }}
-  labels:
-    name: test
+  name: {{ .Values.project }}-{{ .Values.user }}

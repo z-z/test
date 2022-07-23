@@ -1,0 +1,21 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: {{ .Values.project }}-{{ .Values.user }}-pod
+  namespace: {{ .Values.project }}-{{ .Values.user }}
+  labels:
+    app: {{ .Values.project }}-{{ .Values.user }}
+spec:
+  containers:
+  - name: {{ .Values.project }}-{{ .Values.user }}-container
+    image: httpd:2.4
+    securityContext:
+        privileged: true
+    volumeMounts:
+    - mountPath: /usr/local/apache2/htdocs/
+      name: {{ .Values.project }}-{{ .Values.user }}-volume
+  volumes:
+  - name: {{ .Values.project }}-{{ .Values.user }}-volume
+    hostPath:
+      path: /home/{{ .Values.user }}/projects/{{ .Values.project }}
+      type: DirectoryOrCreate

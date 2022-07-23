@@ -1,0 +1,9 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: {{ .Values.project }}-{{ .Values.user }}-service
+spec:
+  selector:
+    app: {{ .Values.project }}-{{ .Values.user }}
+  ports:
+    - port: 80
