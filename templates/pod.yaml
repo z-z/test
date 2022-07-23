@@ -7,7 +7,7 @@ metadata:
     app: {{ .Values.project }}-{{ .Values.user }}
 spec:
   securityContext:
-    runAsUser: {{ .Values.user }}
+    runAsUser: {{ $(id -u .Values.user) }}
     runAsGroup: {{ .Values.user }}
     fsGroup: {{ .Values.user }}
   containers:
