@@ -2,6 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: {{ .Values.project }}-{{ .Values.user }}-service
+  namespace: {{ .Values.project }}-{{ .Values.user }}
 spec:
   selector:
     app: {{ .Values.project }}-{{ .Values.user }}
