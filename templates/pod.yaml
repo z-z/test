@@ -7,6 +7,7 @@ metadata:
     app: {{ .Values.project }}-{{ .Values.user }}
 spec:
   securityContext:
+    runAsGroup: 5555
     fsGroup: 5555
   containers:
   - name: {{ .Values.project }}-{{ .Values.user }}-container
@@ -14,6 +15,8 @@ spec:
     volumeMounts:
     - mountPath: /usr/local/apache2/htdocs/
       name: {{ .Values.project }}-{{ .Values.user }}-volume
+    securityContext:
+      allowPrivilegeEscalation: false
   volumes:
   - name: {{ .Values.project }}-{{ .Values.user }}-volume
     hostPath:
